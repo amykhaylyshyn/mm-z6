@@ -307,7 +307,7 @@ for i, var in enumerate(['X1', 'X2', 'X3', 'X4', 'X5']):
     # Фіксуємо інші фактори на середніх значеннях
     X_plot = pd.DataFrame({v: [mean_X[v]] * 100 for v in ['X1', 'X2', 'X3', 'X4', 'X5']})
     X_plot[var] = x_range
-    X_plot_const = sm.add_constant(X_plot)
+    X_plot_const = sm.add_constant(X_plot, has_constant='add')
     
     # Прогнозовані ймовірності
     y_plot = logit_result.predict(X_plot_const)
